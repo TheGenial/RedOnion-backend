@@ -25,7 +25,7 @@ app.get('/', (req, res) => {
 
 app.post('/addFoods',(req, res) => {
     const food = req.body;
-    client = new MongoClient(uri, { useNewUrlParser: true }, { useUnifiedTopology: true});
+    client = new MongoClient(uri, { useNewUrlParser: true});
     client.connect(err => {
         const collection = client.db("onlineStore").collection("feature");
         collection.insert(food, (err, result) => {
